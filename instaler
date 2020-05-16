@@ -8,10 +8,6 @@ COLOR[5]='\e[35m' #PURPLE='\e[35m'
 COLOR[6]='\033[1;36m' #CYAN='\033[1;36m'
 
 fun_logo(){
-BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "$BARRA"
-echo -e "LOADING..."
-apt-get install figlet -y >/dev/null 2>&1 && figlet VPS-NEW
 cat << EOF
          +---------------------------------+
          | INSTALLER VPS-NEW FREE OFFICIAL |
@@ -29,6 +25,8 @@ fi
 echo "$MIP"
 }
 
+echo -e "LOADING..."
+apt-get install figlet -y >/dev/null 2>&1 && figlet VPS-NEW
 fun_logo
 
 Basic="menu PGet.py ports.sh ADMbot.sh usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
