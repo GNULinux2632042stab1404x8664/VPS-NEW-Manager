@@ -40,10 +40,11 @@ SCPinst="/etc/main-inst" && [[ ! -d ${SCPinst} ]] && mkdir ${SCPinst}
 SCPidioma="${SCPdir}/idioma"
 
 apt-get install screen -y >/dev/null 2>&1 && echo -e "${COLOR[0]}SCREEN OK"
+apt-get install zip -y >/dev/null 2>&1 && echo -e "UNZIP OK"
+apt-get install nano -y >/dev/null 2>&1 && echo -e "NANO OK"
 apt-get install php -y >/dev/null 2>&1 && echo -e "PHP OK"
 apt-get install jq -y >/dev/null 2>&1 && echo -e "JQ OK"
-apt-get install zip -y >/dev/null 2>&1 && echo -e "UNZIP OK"
-apt-get python -y >/dev/null 2>&1
+sudo apt-get python -y >/dev/null 2>&1
 apt-get install unzip -y >/dev/null 2>&1 && echo -e "PROCESSING DOWLOAD"
 apt-get python3 -y >/dev/null 2>&1
 wget ${LINK} -O $HOME/ADM -o /dev/null && echo -e "EXTRACTING FILES ${COLOR[3]}"
