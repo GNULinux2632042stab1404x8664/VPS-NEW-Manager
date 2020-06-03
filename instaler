@@ -1,13 +1,5 @@
 #!/bin/bash
 clear
-COLOR[0]='\033[1;37m' #WHITE='\033[1;37m'
-COLOR[1]='\e[31m' #RED='\e[31m'
-COLOR[2]='\e[32m' #GREEN='\e[32m'
-COLOR[3]='\e[33m' #YELLOW='\e[33m'
-COLOR[4]='\e[34m' #BLUE='\e[34m'
-COLOR[5]='\e[35m' #PURPLE='\e[35m'
-COLOR[6]='\033[1;36m' #CYAN='\033[1;36m'
-
 fun_logo(){
 cat << EOF
           +---------------------------------+
@@ -30,7 +22,7 @@ echo -e "LOADING..."
 apt-get install figlet -y >/dev/null 2>&1 && figlet VPS-NEW
 fun_logo
 
-Basic="menu PGet.py ports.sh ADMbot.sh usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
+Basic="menu PGet.py uports.sh usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh squid.sh"
 LINK="https://github.com/GNULinux2632042stab1404x8664/VPS-NEW-Manager/blob/master/BASE-SCRIPT.zip?raw=true"
 TEMP="$HOME/$RANDOM" && [[ ! -d ${TEMP} ]] && mkdir ${TEMP}
 SCPdir="/etc/nhvps" && [[ ! -d ${SCPdir} ]] && mkdir ${SCPdir}
@@ -59,7 +51,6 @@ case $arq in
 "squid.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "dropbear.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "openvpn.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
-"ssl.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "shadowsocks.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "sockspy.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "PDirect.py")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
@@ -67,15 +58,9 @@ case $arq in
 "POpen.py")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "PPriv.py")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "PPub.py")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
-"ports.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"fai2ban.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"paysnd.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
+"uports.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "apacheon.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"utils.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"speed.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"ultrahost")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"ADMbot.sh")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
-"speedtest.py")mv -f ${TEMP}/$arq ${SCPfrm}/$arq && chmod +x ${SCPfrm}/$arq;;
+"utils.sh")mv -f ${TEMP}/$arq ${SCPinst}/$arq && chmod +x ${SCPinst}/$arq;;
 "usercodes")mv -f ${TEMP}/$arq ${SCPusr}/$arq && chmod +x ${SCPusr}/$arq;;
 *)mv -f ${TEMP}/$arq ${SCPdir}/$arq && chmod +x ${SCPdir}/$arq;;
 esac
@@ -86,15 +71,11 @@ cat << EOF > /bin/vps
 #!/bin/bash
 cd ${SCPdir} && ./menu
 EOF
-cat << EOF > /bin/main
-#!/bin/bash
-cd ${SCPdir} && ./menu
-EOF
-chmod +x /bin/vps && chmod +x /bin/main
+chmod +x /bin/vps
 
 rm $HOME/ADM > /dev/null 2>&1
 rm $HOME/$0  > /dev/null 2>&1
 
 
 echo -e "${COLOR[0]}INSTALLATION SUCCESSFUL!"
-echo -e "WRITE THE FOLLOWING COMMANDS: ${COLOR[1]} vps / main \033[0m"
+echo -e "WRITE THE FOLLOWING COMMANDS: ${COLOR[1]} vps \033[0m"
